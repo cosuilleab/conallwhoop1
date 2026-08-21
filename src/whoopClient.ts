@@ -79,7 +79,7 @@ async function getValidAccessToken(): Promise<string> {
   return tokens.access_token;
 }
 
-export async function whoopGet(path: string, query?: Record<string, string>): Promise<any> {
+export async function whoopGet(path: string, query?: Record<string, string | undefined>): Promise<any> {
   const accessToken = await getValidAccessToken();
   const url = new URL(`${API_HOST}${path}`);
   if (query) {
